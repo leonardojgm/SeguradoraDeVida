@@ -1,0 +1,67 @@
+﻿@page
+@using Domain
+@model SeguradoraDeVida.Pages.ApolicesVidas.CreateModel
+
+@{
+    ViewData["Title"] = "Nova";
+}
+
+<h1>Nova</h1>
+
+<h4>Apólice Vida</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ApoliceVida.IdApolice" class="control-label"></label>
+                <select asp-for="ApoliceVida.IdApolice" class="form-control">
+                    @if (Model.ApoliceVida.ApolicesPossiveis != null && Model.ApoliceVida.ApolicesPossiveis.Any())
+                    {
+                        <option disabled selected></option>
+                        foreach (Apolice item in Model.ApoliceVida.ApolicesPossiveis)
+                        {
+                            <option value = "@item.IdApolice">@item.IdApolice</option>
+                        }
+                    }
+                    else
+                    {
+                        <option disabled>Não disponível</option>
+                    }
+
+                </select>
+                <span asp-validation-for="ApoliceVida.IdApolice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApoliceVida.IdVida" class="control-label"></label>
+                <select asp-for="ApoliceVida.IdVida" class="form-control">
+                    @if (Model.ApoliceVida.VidasPossiveis != null && Model.ApoliceVida.VidasPossiveis.Any())
+                    {
+                        <option disabled selected></option>
+                        foreach (Vida item in Model.ApoliceVida.VidasPossiveis)
+                        {
+                            <option value = "@item.IdVida">@item.Nome</option>
+                        }
+                    }
+                    else
+                    {
+                        <option disabled>Não disponível</option>
+                    }
+                </select>
+                <span asp-validation-for="ApoliceVida.IdVida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Voltar para lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

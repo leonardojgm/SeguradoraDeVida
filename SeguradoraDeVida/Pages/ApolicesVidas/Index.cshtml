@@ -1,0 +1,48 @@
+﻿@page
+@model SeguradoraDeVida.Pages.ApolicesVidas.IndexModel
+
+@{
+    ViewData["Title"] = "Associação de Vidas a Apólices";
+}
+
+<h1>Associação de Vidas a Apólices</h1>
+
+<p>
+    <a asp-page="Create">Nova</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ApoliceVida[0].IdApolice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApoliceVida[0].IdVida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ApoliceVida[0].DataCancelamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ApoliceVida) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdApolice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdVida)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCancelamento)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdApoliceVida">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdApoliceVida">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdApoliceVida">Cancelar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

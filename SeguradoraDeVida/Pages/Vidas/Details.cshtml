@@ -1,0 +1,91 @@
+﻿@page
+@model SeguradoraDeVida.Pages.Vidas.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalhes Vida";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Vida @Model.Vida.IdVida</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.DataNascimento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.DataNascimento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Sexo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Sexo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.CPF)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.CPF)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.EnderecoResidencial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.EnderecoResidencial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.EnderecoComercial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.EnderecoComercial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Telefones)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Telefones)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Profissao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Profissao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.IdSeguradoPrincipal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.IdSeguradoPrincipal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.DataCancelamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.DataCancelamento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Vida.IdVida">Editar</a> |
+    <a asp-page="./Index">Voltar para lista</a>
+</div>

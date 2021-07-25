@@ -1,0 +1,75 @@
+﻿@page
+@using Domain
+@model SeguradoraDeVida.Pages.Relatorios.IndexModel
+
+@{
+    ViewData["Title"] = "Relatórios";
+}
+
+<h1>Relatorios</h1>
+
+<div>
+    <h4>Cancelamento Por Mês</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @if (Model.MesCanceladas != null && Model.MesCanceladas.Any())
+            {
+                foreach (RelatorioMesCanceladas item in Model.MesCanceladas)
+                {
+                    <span>@item.Mes: @item.Quantidade</span>
+                    <br>
+                }
+            }
+            else
+            {
+                <span>Não disponível</span>
+            }
+        </dt>
+    </dl>
+    <br>
+    <h4>A Receber Por Mês e Forma de Pagamento</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @if (Model.MesFormaPagamentoValor != null && Model.MesFormaPagamentoValor.Any())
+            {
+                foreach (RelatorioMesFormaPagamentoValor item in Model.MesFormaPagamentoValor)
+                {
+                    <br>
+                    <b>@item.Mes</b>
+                    <br>
+                    <span>Débito: R$ @item.Debito</span>
+                    <br>
+                    <span>Cartão de Crédito: R$ @item.Credito</span>
+                    <br>
+                    <span>Boleto: R$ @item.Boleto</span>
+                    <br>
+                }
+            }
+            else
+            {
+                <span>Não disponível</span>
+            }
+        </dt>
+    </dl>
+    <br>
+    <h4>Distribuíção Geográfica</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-4">
+            @if (Model.CidadeVidas != null && Model.CidadeVidas.Any())
+            {
+                foreach (RelatorioCidadeVidas item in Model.CidadeVidas)
+                {
+                    <span>@item.Cidade: @item.Quantidade</span>
+                    <br>
+                }
+            }
+            else
+            {
+                <span>Não disponível</span>
+            }
+        </dt>
+    </dl>
+</div>

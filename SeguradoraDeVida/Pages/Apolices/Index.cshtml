@@ -1,0 +1,66 @@
+﻿@page
+@model SeguradoraDeVida.Pages.Apolices.IndexModel
+
+@{
+    ViewData["Title"] = "Apólices";
+}
+
+<h1>Apólices</h1>
+
+<p>
+    <a asp-page="Create">Nova</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Apolice[0].FormaPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apolice[0].DataInicio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apolice[0].Vigencia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apolice[0].DataPagamento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apolice[0].Valor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Apolice[0].DataCancelamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Apolice) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormaPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataInicio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vigencia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPagamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCancelamento)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdApolice">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdApolice">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdApolice">Cancelar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

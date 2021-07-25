@@ -1,0 +1,107 @@
+﻿@page
+@using Domain
+@model SeguradoraDeVida.Pages.Vidas.EditModel
+
+@{
+    ViewData["Title"] = "Editar Vida";
+}
+
+<h1>Editar</h1>
+
+<h4>Vida @Model.Vida.IdVida</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Vida.IdVida" />
+            <div class="form-group">
+                <label asp-for="Vida.Nome" class="control-label"></label>
+                <input asp-for="Vida.Nome" class="form-control" />
+                <span asp-validation-for="Vida.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.DataNascimento" class="control-label"></label>
+                <input asp-for="Vida.DataNascimento" class="form-control" type="date" />
+                <span asp-validation-for="Vida.DataNascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.Sexo" class="control-label"></label>
+                <select asp-for="Vida.Sexo" class="form-control">
+                    <option>Feminino</option>
+                    <option>Masculino</option>
+                    <option>LGBTQIA+</option>
+                </select>
+                <span asp-validation-for="Vida.Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.Tipo" class="control-label"></label>
+                <select asp-for="Vida.Tipo" class="form-control">
+                    <option>Segurado Principal</option>
+                    <option>Cônjuge</option>
+                    <option>Filho</option>
+                </select>
+                <span asp-validation-for="Vida.Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.CPF" class="control-label"></label>
+                <input asp-for="Vida.CPF" class="form-control" />
+                <span asp-validation-for="Vida.CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.EnderecoResidencial" class="control-label"></label>
+                <input asp-for="Vida.EnderecoResidencial" class="form-control" />
+                <span asp-validation-for="Vida.EnderecoResidencial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.EnderecoComercial" class="control-label"></label>
+                <input asp-for="Vida.EnderecoComercial" class="form-control" />
+                <span asp-validation-for="Vida.EnderecoComercial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.Telefones" class="control-label"></label>
+                <input asp-for="Vida.Telefones" class="form-control" type="tel" />
+                <span asp-validation-for="Vida.Telefones" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.Email" class="control-label"></label>
+                <input asp-for="Vida.Email" class="form-control" type="email" />
+                <span asp-validation-for="Vida.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.Profissao" class="control-label"></label>
+                <input asp-for="Vida.Profissao" class="form-control" />
+                <span asp-validation-for="Vida.Profissao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vida.IdSeguradoPrincipal" class="control-label"></label>
+                <select asp-for="Vida.IdSeguradoPrincipal" class="form-control">
+                    @if (Model.Vida.VidasPossiveis != null && Model.Vida.VidasPossiveis.Any())
+                    {
+                        <option disabled selected></option>
+                        foreach (Vida item in Model.Vida.VidasPossiveis)
+                        {
+                            <option value = "@item.IdVida">@item.Nome</option>
+                        }
+                    }
+                    else
+                    {
+                        <option disabled>Não disponível</option>
+                    }
+                </select>
+                <span asp-validation-for="Vida.IdSeguradoPrincipal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Voltar para lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

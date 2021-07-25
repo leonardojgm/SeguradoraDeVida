@@ -1,0 +1,55 @@
+﻿@page
+@model SeguradoraDeVida.Pages.Apolices.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalhes Apólice";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Apólice @Model.Apolice.IdApolice</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apolice.FormaPagamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apolice.FormaPagamento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apolice.DataInicio)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apolice.DataInicio)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apolice.Vigencia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apolice.Vigencia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apolice.DataPagamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apolice.DataPagamento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apolice.Valor)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apolice.Valor)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Apolice.DataCancelamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Apolice.DataCancelamento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Apolice.IdApolice">Editar</a> |
+    <a asp-page="./Index">Voltar para lista</a>
+</div>

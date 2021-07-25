@@ -1,0 +1,102 @@
+﻿@page
+@model SeguradoraDeVida.Pages.Vidas.IndexModel
+
+@{
+    ViewData["Title"] = "Vidas";
+}
+
+<h1>Vidas</h1>
+
+<p>
+    <a asp-page="Create">Nova</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].DataNascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].EnderecoResidencial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].EnderecoComercial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].Telefones)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].Profissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].IdSeguradoPrincipal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Vida[0].DataCancelamento)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Vida) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataNascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnderecoResidencial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnderecoComercial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefones)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdSeguradoPrincipal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCancelamento)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.IdVida">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.IdVida">Detalhes</a> |
+                <a asp-page="./Delete" asp-route-id="@item.IdVida">Cancelar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

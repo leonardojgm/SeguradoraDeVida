@@ -1,0 +1,37 @@
+﻿@page
+@model SeguradoraDeVida.Pages.ApolicesVidas.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalhes Apólice Vida";
+}
+
+<h1>Detalhes</h1>
+
+<div>
+    <h4>Apólice Vida @Model.ApoliceVida.IdApoliceVida</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApoliceVida.IdApolice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApoliceVida.IdApolice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApoliceVida.IdVida)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApoliceVida.IdVida)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ApoliceVida.DataCancelamento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ApoliceVida.DataCancelamento)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ApoliceVida.IdApoliceVida">Edit</a> |
+    <a asp-page="./Index">Voltar para lista</a>
+</div>

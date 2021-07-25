@@ -1,0 +1,88 @@
+﻿@page
+@model SeguradoraDeVida.Pages.Vidas.DeleteModel
+
+@{
+    ViewData["Title"] = "Deletar Vida";
+}
+
+<h1>Deletar</h1>
+
+<h3>Tem certeza que deseja deletar?</h3>
+<div>
+    <h4>Vida @Model.Vida.IdVida</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Nome)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Nome)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.DataNascimento)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.DataNascimento)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Sexo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Sexo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.CPF)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.CPF)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.EnderecoResidencial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.EnderecoResidencial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.EnderecoComercial)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.EnderecoComercial)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Telefones)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Telefones)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.Profissao)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.Profissao)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Vida.IdSeguradoPrincipal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Vida.IdSeguradoPrincipal)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Vida.IdVida" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Voltar para lista</a>
+    </form>
+</div>
